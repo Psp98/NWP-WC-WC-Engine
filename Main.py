@@ -131,8 +131,14 @@ class Application(object):
             
             probabilityMap = dict()
             
+            # Unigram Case
+            if(size == 0):
+                
+                for key, value in self.unigramMap.items():
+                    probabilityMap[str(key)] = float(value)
+            
             # Bigram Case
-            if(size == 1):
+            elif(size == 1):
                 denString = screenTextArray[size - 1]
                 lastWord = screenTextArray[size - 1]
                 den = float(self.unigramMap.get(denString))
